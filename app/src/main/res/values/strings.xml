@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">recordedProject</string>
+    <string name="app_name">DemoApp</string>
+    <string name="search_text">Search</string>
+    <string name="searchButton">SearchButton</string>
+    <string name="color_image_view">colorImageView</string>
+    <string name="color_tittle">Tittle :</string>
+    <string name="na">N/A</string>
+    <string name="color_hex">Hex :</string>
+    <string name="favoriteButton">favoriteButton</string>
 </resources>
