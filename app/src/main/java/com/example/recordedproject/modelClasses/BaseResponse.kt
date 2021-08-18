@@ -1,4 +1,4 @@
-package com.example.recordedproject.ColorResponse
+package com.example.recordedproject.modelClasses
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass

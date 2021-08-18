@@ -6,7 +6,7 @@
 
         <variable
             name="colorResponseObject"
-            type="com.example.recordedproject.ColorResponse.ColorResponseObject" />
+            type="com.example.recordedproject.modelClasses.ColorResponse" />
 
     </data>
 

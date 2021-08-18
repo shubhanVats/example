@@ -4,24 +4,26 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.recordedproject.ColorResponse.BaseResponse
-import com.example.recordedproject.ColorResponse.ColorResponseObject
+import com.example.recordedproject.modelClasses.BaseResponse
+import com.example.recordedproject.modelClasses.ColorResponse
 import com.example.recordedproject.repository.DataState
 import com.example.recordedproject.repository.MainRepo
 import com.example.recordedproject.utils.Event
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class MainActivityViewModel  @Inject constructor(
     private val mainRepo: MainRepo
 ) : ViewModel() {
 
-    val getColorResponseData: LiveData<Event<DataState<BaseResponse<ArrayList<ColorResponseObject>>>>>
-    get() = getColorResponseData
+    val getColorResponseData: LiveData<Event<DataState<BaseResponse<ArrayList<ColorResponse>>>>>
+    get() = _getColorResponse
 
-    private val getColorResponse : MutableLiveData<Event<DataState<BaseResponse<ArrayList<ColorResponseObject>>>>> =
+    private val _getColorResponse : MutableLiveData<Event<DataState<BaseResponse<ArrayList<ColorResponse>>>>> =
         MutableLiveData()
 
 
@@ -30,7 +32,7 @@ class MainActivityViewModel  @Inject constructor(
             when(mainEvent){
                is MainEvent.ColorResponseItem -> {
                    mainRepo.getColorResp().onEach {
-                       dataState ->  getColorResponse.value = Event(dataState)
+                       dataState ->  _getColorResponse.value = Event(dataState)
                    }
                        .launchIn(viewModelScope)
 

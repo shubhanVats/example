@@ -1,10 +1,10 @@
-package com.example.recordedproject.ColorResponse
+package com.example.recordedproject.modelClasses
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class ColorResponseObject(
+data class ColorResponse(
     @Json(name = "apiUrl")
     val apiUrl: String,
     @Json(name = "badgeUrl")
